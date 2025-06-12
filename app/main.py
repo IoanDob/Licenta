@@ -19,6 +19,8 @@ from .database import engine, get_db
 from .models import Base
 from .auth import get_current_user
 
+from app.api import analysis
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -93,6 +95,7 @@ app.mount("/static", StaticFiles(directory="frontend/static"), name="static")
 templates = Jinja2Templates(directory="frontend/templates")
 
 # Include API routers with enhanced configuration
+# Include API routers with enhanced configuration
 app.include_router(
     auth_router.router,
     prefix="/api",
@@ -111,6 +114,8 @@ app.include_router(
     tags=["History"]
 )
 
+# Include analysis router from app.api.analysis (if needed)
+app.include_router(analysis.router)
 # Enhanced route handlers
 @app.get("/", response_class=HTMLResponse, tags=["Frontend"])
 async def login_page(request: Request):
