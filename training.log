@@ -1,0 +1,92 @@
+2025-06-04 17:31:44,574 - __main__ - INFO - Starting fraud detection model training pipeline...
+2025-06-04 17:31:44,575 - __main__ - INFO - Initialized FraudDetectionTrainer with models directory: app/ml_models/saved_models
+2025-06-04 17:31:44,575 - __main__ - INFO - Loading PaySim dataset from: data/paysim1.csv
+2025-06-04 17:31:44,576 - __main__ - INFO - Dataset file size: 470.67 MB
+2025-06-04 17:32:39,301 - __main__ - INFO - Loaded 6362620 rows directly
+2025-06-04 17:32:39,307 - __main__ - INFO - Dataset loaded successfully:
+2025-06-04 17:32:39,307 - __main__ - INFO -   - Total transactions: 6,362,620
+2025-06-04 17:32:39,308 - __main__ - INFO -   - Fraudulent transactions: 8,213
+2025-06-04 17:32:39,308 - __main__ - INFO -   - Fraud rate: 0.129%
+2025-06-04 17:32:41,313 - __main__ - INFO -   - Memory usage: 989.95 MB
+2025-06-04 17:32:41,399 - __main__ - INFO - Starting advanced feature engineering...
+2025-06-04 17:32:41,442 - __main__ - INFO - Creating time-based features...
+2025-06-04 17:32:41,602 - __main__ - INFO - Creating amount-based features...
+2025-06-04 17:32:49,966 - __main__ - INFO - Creating balance-based features...
+2025-06-04 17:32:50,151 - __main__ - INFO - Creating transaction-specific features...
+2025-06-04 17:32:54,807 - __main__ - INFO - Creating fraud-specific indicators...
+2025-06-04 17:32:54,990 - __main__ - INFO - Creating aggregated features...
+2025-06-04 17:32:55,033 - __main__ - INFO - Feature engineering completed. Dataset shape: (6362620, 38)
+2025-06-04 17:32:55,033 - __main__ - INFO - Preparing features for training...
+2025-06-04 17:32:55,034 - __main__ - INFO - Using 32 features for training
+2025-06-04 17:32:55,645 - __main__ - ERROR - Training pipeline failed: Cannot setitem on a Categorical with a new category (0), set the categories first
+2025-06-04 17:41:45,260 - __main__ - INFO - Starting fraud detection model training pipeline...
+2025-06-04 17:41:45,261 - __main__ - INFO - Initialized FraudDetectionTrainer with models directory: app/ml_models/saved_models
+2025-06-04 17:41:45,261 - __main__ - INFO - Loading PaySim dataset from: data/paysim1.csv
+2025-06-04 17:41:45,262 - __main__ - INFO - Dataset file size: 470.67 MB
+2025-06-04 17:41:53,798 - __main__ - INFO - Loaded 6362620 rows directly
+2025-06-04 17:42:29,111 - __main__ - INFO - Dataset loaded successfully:
+2025-06-04 17:42:29,112 - __main__ - INFO -   - Total transactions: 6,362,620
+2025-06-04 17:42:29,112 - __main__ - INFO -   - Fraudulent transactions: 8,213
+2025-06-04 17:42:29,113 - __main__ - INFO -   - Fraud rate: 0.129%
+2025-06-04 17:42:31,601 - __main__ - INFO -   - Memory usage: 989.95 MB
+2025-06-04 17:42:31,689 - __main__ - INFO - Starting advanced feature engineering...
+2025-06-04 17:42:31,732 - __main__ - INFO - Creating time-based features...
+2025-06-04 17:42:31,880 - __main__ - INFO - Creating amount-based features...
+2025-06-04 17:42:39,986 - __main__ - INFO - Creating balance-based features...
+2025-06-04 17:42:40,153 - __main__ - INFO - Creating transaction-specific features...
+2025-06-04 17:42:45,927 - __main__ - INFO - Creating fraud-specific indicators...
+2025-06-04 17:42:46,093 - __main__ - INFO - Creating aggregated features...
+2025-06-04 17:42:46,135 - __main__ - INFO - Feature engineering completed. Dataset shape: (6362620, 38)
+2025-06-04 17:42:46,136 - __main__ - INFO - Preparing features for training...
+2025-06-04 17:42:46,136 - __main__ - INFO - Using 32 features for training
+2025-06-04 17:42:47,661 - __main__ - INFO - Feature matrix shape: (6362620, 32)
+2025-06-04 17:42:47,698 - __main__ - INFO - Target distribution: {0: 6354407, 1: 8213}
+2025-06-04 17:42:47,699 - __main__ - INFO - Starting model training...
+2025-06-04 17:42:54,877 - __main__ - INFO - Training set: 5090096 samples
+2025-06-04 17:42:54,878 - __main__ - INFO - Test set: 1272524 samples
+2025-06-04 17:42:54,882 - __main__ - INFO - Training fraud rate: 0.129%
+2025-06-04 17:42:54,882 - __main__ - INFO - Scaling features...
+2025-06-04 17:42:58,309 - __main__ - INFO - Training Random Forest...
+2025-06-04 17:46:48,936 - __main__ - INFO - Evaluating Random Forest...
+2025-06-04 17:46:50,080 - __main__ - INFO - Random Forest Results:
+2025-06-04 17:46:50,080 - __main__ - INFO -   AUC Score: 0.9996
+2025-06-04 17:46:50,080 - __main__ - INFO -   F1 Score: 0.9988
+2025-06-04 17:46:50,080 - __main__ - INFO -   Precision: 1.0000
+2025-06-04 17:46:50,080 - __main__ - INFO -   Recall: 0.9976
+2025-06-04 17:46:50,080 - __main__ - INFO -   Specificity: 1.0000
+2025-06-04 17:46:50,080 - __main__ - INFO -   Training Time: 227.25 seconds
+2025-06-04 17:46:51,283 - __main__ - INFO - Training Logistic Regression...
+2025-06-04 17:52:27,410 - __main__ - INFO - Evaluating Logistic Regression...
+2025-06-04 17:52:28,726 - __main__ - INFO - Logistic Regression Results:
+2025-06-04 17:52:28,726 - __main__ - INFO -   AUC Score: 0.9991
+2025-06-04 17:52:28,726 - __main__ - INFO -   F1 Score: 0.1955
+2025-06-04 17:52:28,726 - __main__ - INFO -   Precision: 0.1084
+2025-06-04 17:52:28,726 - __main__ - INFO -   Recall: 0.9939
+2025-06-04 17:52:28,728 - __main__ - INFO -   Specificity: 0.9894
+2025-06-04 17:52:28,728 - __main__ - INFO -   Training Time: 335.61 seconds
+2025-06-04 17:52:30,084 - __main__ - INFO - Saving models to app/ml_models/saved_models...
+2025-06-04 17:52:30,136 - __main__ - INFO - Models saved successfully!
+2025-06-04 17:52:30,137 - __main__ - INFO - Saved files: ['feature_columns.pkl', 'label_encoders.pkl', 'logistic_regression_model.pkl', 'random_forest_model.pkl', 'scaler.pkl', 'training_stats.pkl']
+2025-06-04 17:52:30,137 - __main__ - INFO - Creating feature importance plot...
+2025-06-04 17:52:31,974 - __main__ - INFO - Feature importance plot saved to: app/ml_models/saved_models/feature_importance.png
+2025-06-04 17:52:31,974 - __main__ - INFO - Top 10 most important features:
+2025-06-04 17:52:31,975 - __main__ - INFO -   amount_to_orig_balance_ratio: 0.2294
+2025-06-04 17:52:31,975 - __main__ - INFO -   balance_change_orig: 0.1962
+2025-06-04 17:52:31,976 - __main__ - INFO -   oldbalanceOrg: 0.0692
+2025-06-04 17:52:31,976 - __main__ - INFO -   balance_ratio_orig: 0.0639
+2025-06-04 17:52:31,977 - __main__ - INFO -   amount_to_dest_balance_ratio: 0.0588
+2025-06-04 17:52:31,977 - __main__ - INFO -   newbalanceOrig: 0.0577
+2025-06-04 17:52:31,977 - __main__ - INFO -   zeroed_out_orig: 0.0562
+2025-06-04 17:52:31,978 - __main__ - INFO -   high_risk_pattern: 0.0306
+2025-06-04 17:52:31,978 - __main__ - INFO -   new_account_orig: 0.0268
+2025-06-04 17:52:31,978 - __main__ - INFO -   amount_sqrt: 0.0242
+2025-06-04 17:52:31,979 - __main__ - INFO - Training pipeline completed successfully!
+2025-06-04 17:52:31,979 - __main__ - INFO - Model comparison:
+2025-06-04 17:52:31,979 - __main__ - INFO -   random_forest:
+2025-06-04 17:52:31,979 - __main__ - INFO -     AUC: 0.9996
+2025-06-04 17:52:31,979 - __main__ - INFO -     F1: 0.9988
+2025-06-04 17:52:31,980 - __main__ - INFO -     Training time: 227.25s
+2025-06-04 17:52:31,980 - __main__ - INFO -   logistic_regression:
+2025-06-04 17:52:31,980 - __main__ - INFO -     AUC: 0.9991
+2025-06-04 17:52:31,980 - __main__ - INFO -     F1: 0.1955
+2025-06-04 17:52:31,980 - __main__ - INFO -     Training time: 335.61s

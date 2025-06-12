@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Smart Detection{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="h3">Welcome to Smart Detection</h1>
+            <button class="btn btn-outline-secondary" onclick="logout()">
+                <i class="fas fa-sign-out-alt me-2"></i>Logout
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Main Analysis Card -->
+    <div class="col-lg-8 mb-4">
+        <div class="card h-100 border-primary">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">
+                    <i class="fas fa-shield-alt me-2"></i>AI Fraud Detection
+                </h4>
+            </div>
+            <div class="card-body text-center p-5">
+                <i class="fas fa-brain fa-4x text-primary mb-4"></i>
+                <h2 class="text-primary mb-3">Start Financial Analysis</h2>
+                <p class="lead text-muted mb-4">
+                    Upload your transaction data and let our advanced AI models detect suspicious activities and potential fraud
+                </p>
+                <div class="row text-center mb-4">
+                    <div class="col-md-4">
+                        <div class="p-3">
+                            <i class="fas fa-upload fa-2x text-info mb-2"></i>
+                            <h6 class="text-muted">1. Upload CSV</h6>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3">
+                            <i class="fas fa-cog fa-2x text-warning mb-2"></i>
+                            <h6 class="text-muted">2. AI Analysis</h6>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3">
+                            <i class="fas fa-chart-line fa-2x text-success mb-2"></i>
+                            <h6 class="text-muted">3. View Results</h6>
+                        </div>
+                    </div>
+                </div>
+                <a href="/analysis" class="btn btn-primary btn-lg">
+                    <i class="fas fa-play me-2"></i>Start Analysis
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Side Panel -->
+    <div class="col-lg-4">
+        <div class="row">
+            <!-- Recent Analysis -->
+            <div class="col-12 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="fas fa-history me-2"></i>Recent Analysis
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="recentAnalysis">
+                            <div class="text-center py-3">
+                                <div class="spinner-border spinner-border-sm text-primary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                <p class="text-muted mt-2 mb-0">Loading...</p>
+                            </div>
+                        </div>
+                        <div class="d-grid gap-2 mt-3">
+                            <a href="/history" class="btn btn-outline-primary btn-sm">
+                                <i class="fas fa-list me-2"></i>View All History
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quick Stats -->
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">
+                            <i class="fas fa-chart-bar me-2"></i>Quick Statistics
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row text-center">
+                            <div class="col-6">
+                                <div class="stat-card p-3">
+                                    <h4 class="stat-number text-primary" id="totalAnalyses">-</h4>
+                                    <small class="stat-label">Total Analyses</small>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stat-card p-3">
+                                    <h4 class="stat-number text-warning" id="fraudDetected">-</h4>
+                                    <small class="stat-label">Fraud Detected</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Financial News Section -->
+<div class="row mt-5">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="fas fa-newspaper me-2"></i>Latest Financial Security News
+                </h5>
+            </div>
+            <div class="card-body">
+                <div id="financialNews">
+                    <div class="text-center py-3">
+                        <div class="spinner-border spinner-border-sm text-primary" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="text-muted mt-2 mb-0">Loading financial news...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/dashboard.js"></script>
+{% endblock %}

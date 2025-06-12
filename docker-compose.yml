@@ -1,0 +1,62 @@
+services:
+  db:
+    image: postgres:13
+    container_name: smart_detection_db
+    environment:
+      POSTGRES_USER: frauduser
+      POSTGRES_PASSWORD: fraudpass
+      POSTGRES_DB: frauddb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - smart_detection_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U frauduser -d frauddb"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+  web:
+    build: .
+    container_name: smart_detection_web
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://frauduser:fraudpass@db:5432/frauddb
+      SECRET_KEY: your-super-secret-key-change-this-in-production-environment
+      DEBUG: "True"
+      PYTHONPATH: /app
+    volumes:
+    - ./app:/app/app
+    - ./frontend:/app/frontend
+    - ./data:/app/data
+    - ./app/ml_models/saved_models:/app/app/ml_models/saved_models
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - smart_detection_network
+    restart: unless-stopped
+    command: >
+      sh -c "
+        echo 'Database is ready!' &&
+        sleep 5 &&
+        python -c 'from app.database import engine; from app.models import Base; Base.metadata.create_all(bind=engine)' &&
+        echo 'Database tables created!' &&
+        uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+      "
+
+volumes:
+  postgres_data:
+    driver: local
+  uploads_data:
+    driver: local
+  models_data:
+    driver: local
+
+networks:
+  smart_detection_network:
+    driver: bridge
